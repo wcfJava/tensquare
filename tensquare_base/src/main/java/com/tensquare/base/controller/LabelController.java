@@ -22,6 +22,14 @@ public class LabelController {
     @Autowired
     private LabelService labelService;
 
+    /**
+     * @Description: 查询所有标签
+     * @param
+     * @Date: 2019/11/26 20:32
+     * @Author: wangcunfu
+     * @Return com.tensquare.entity.Result
+     * @Throws
+     */
     public Result findAll(){
         return new Result();
     }
