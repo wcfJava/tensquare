@@ -58,6 +58,8 @@ public class LabelService {
     @Transactional(rollbackFor = Exception.class)
     public void add(Label label){
         label.setId(String.valueOf(idWorker.nextId()));
+        label.setState("0");
+        labelDao.save(label);
     }
     /**
      * @Description: 修改标签/逻辑删除

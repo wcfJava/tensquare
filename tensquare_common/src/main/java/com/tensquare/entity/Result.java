@@ -19,4 +19,20 @@ public class Result {
     private String message;
     /** 返回数据 */
     private Object data;
+
+    public Result() {
+    }
+
+    public Result(boolean flag, Integer code, String message) {
+        this.flag = flag;
+        this.code = code;
+        this.message = message;
+    }
+
+    public Result(boolean flag, Integer code, String message, Object data) {
+        this.flag = flag;
+        this.code = code;
+        this.message = message;
+        this.data = data;
+    }
 }

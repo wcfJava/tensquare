@@ -2,6 +2,7 @@ package com.tensquare.base.pojo;
 
 import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -19,6 +20,7 @@ import javax.persistence.Table;
 public class Label {
     @Id
     private String id;
+    @Column(name = "labelname")
     private String labelName;
     private String state;
     private Integer count;
