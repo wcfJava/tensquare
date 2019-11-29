@@ -4,6 +4,7 @@ import com.tensquare.base.pojo.Label;
 import com.tensquare.base.service.LabelService;
 import com.tensquare.entity.Result;
 import com.tensquare.entity.StatusCode;
+import com.tensquare.util.CommonLogger;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -45,7 +46,7 @@ public class LabelController {
 
     /**
      * @Description: 根据id查询单条标签信息
-     * @param id
+     * @param id 标签id
      * @Date: 2019/11/28 21:28
      * @Author: wangcunfu
      * @Return com.tensquare.entity.Result
@@ -54,7 +55,8 @@ public class LabelController {
     @GetMapping("/findById")
     @ApiOperation("根据id查询单条标签")
     public Result findById(@NotNull @ApiParam("标签ID") @RequestParam String id){
-        return new Result(true,StatusCode.OK,"查询成功",labelService.findById(id));
+        Label label = labelService.findById(id);
+        return new Result(true,StatusCode.OK,"查询成功",label);
     }
 
     /**
@@ -80,7 +82,7 @@ public class LabelController {
      * @Throws
      */
     @PostMapping("/updateById")
-    @ApiOperation("修改成功")
+    @ApiOperation("修改标签")
     public Result updateById(@RequestBody Label label){
         labelService.updateById(label);
         return new Result(true,StatusCode.OK,"修改成功");
